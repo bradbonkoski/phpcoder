@@ -1,0 +1,9 @@
+<phpunit bootstrap="init.php" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true">
+
+    <testsuite name="TC Test">
+        <directory>cases/</directory>
+    </testsuite>
+
+</phpunit>
+
+
