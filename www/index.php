@@ -24,16 +24,17 @@ function keyFilter(e, field) {
 <body>
 
 <?php
-    $code = "";
+set_include_path(get_include_path() . PATH_SEPARATOR . dirname(dirname(__FILE__)));
+$code = "";
     $pass = 0;
     $results = "";
     include 'problems.php';
-    include './lib/ResultParser.php';
+    include 'lib/ResultParser.php';
     if (isset($_POST['frmSubmit'])) {
         //echo "<pre>".print_r($_POST)."</pre>"; 
         $code = $_POST['code'];
         file_put_contents("/tmp/testFile.php", "<?php \n".$_POST['code']."\n?>");
-        $out2 = exec("cd harnesses; phpunit --log-junit /tmp/test --group {$_POST['testGroup']}", $out);
+        $out2 = exec("cd ../harnesses; phpunit --log-junit /tmp/test --group {$_POST['testGroup']}", $out);
         //print_r($out);
         $rp = new ResultParser("/tmp/test");
         $rp->parse();
