@@ -1,7 +1,7 @@
 <?php
 
 require_once 'PHPUnit/Framework/TestCase.php';
-require '/tmp/testFile.php';
+require_once '/tmp/testFile.php';
 
 class ProgramOneTest extends PHPUnit_Framework_TestCase
 {
